@@ -4598,15 +4598,20 @@ THREE.WebGLRenderer = function ( parameters ) {
 		}
 
 		// uv repeat and offset setting priorities
-		//  1. color map
-		//  2. specular map
-		//  3. normal map
-		//  4. bump map
-		//  5. alpha map
+		//  1. material
+		//  2. color map
+		//  3. specular map
+		//  4. normal map
+		//  5. bump map
+		//  6. alpha map
 
 		var uvScaleMap;
 
-		if ( material.map ) {
+		if (material.uv_offset_repeat) {
+
+			uvScaleMap = material.uv_offset_repeat;
+		}
+		else if ( material.map ) {
 
 			uvScaleMap = material.map;
 

@@ -42,6 +42,8 @@ THREE.Material = function () {
 	this.visible = true;
 
 	this._needsUpdate = true;
+	
+	this.uv_offset_repeat = null;
 
 };
 
@@ -219,6 +221,14 @@ THREE.Material.prototype = {
 		material.overdraw = this.overdraw;
 
 		material.visible = this.visible;
+
+		// Vivien: Shallow of Deep copy ?
+		material.uv_offset_repeat = this.uv_offset_repeat ? {
+			offset:this.uv_offset_repeat.offset.clone(),
+			repeat:this.uv_offset_repeat.repeat.clone()
+		} : null;
+		//material.uv_offset_repeat = this.uv_offset_repeat
+
 
 		return material;
 
