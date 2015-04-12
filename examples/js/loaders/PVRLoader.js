@@ -8,6 +8,7 @@
  *   TODO : implement loadMipmaps option
  */
 
+(function () {
 
 THREE.PVRLoader = function () {
 	this._parser = THREE.PVRLoader.parse;
@@ -249,4 +250,6 @@ THREE.PVRLoader._extract = function ( pvrDatas ) {
 
 
 	return pvr;
-}
+};
+
+})();
